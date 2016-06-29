@@ -10,10 +10,27 @@ app.get('/', function (req, res) {
 });
 
 app.listen(3000, function () {
+
+    var interpreter = new Interpreter();
     console.log('Example app listening on port 3000!');
-    //var str = Isla.Interpreter.interpret("write 'aaafaga'");
-    //console.log(str.ret);
+
+
     var str = Parser.parse('var a = 1');
-    console.log(Interpreter.interpret());
+    var str2 = Parser.parse('var b = 2');
+    var str3 = Parser.parse('var c = a + b');
+    console.log(str);
+
+    var variables = [];
+    variables.push(interpreter.interpret(str));
+    variables.push(interpreter.interpret(str2));
+    variables.push(interpreter.interpret(str3));
+    variables.push({name: 'c', value: eval(''+variables[0].value+''+variables[2].operator+''+variables[1].value)});
+
+    eval('var v = '+variables[0].value+''+variables[2].operator+''+variables[1].value);
+    variables.forEach(function (element) {
+        console.log(element);
+    });
+
+    console.log(v);
 });
 
