@@ -14,7 +14,6 @@ app.listen(3000, function () {
     var interpreter = new Interpreter();
     console.log('Example app listening on port 3000!');
 
-
     var str = Parser.parse('var a = 1');
     var str2 = Parser.parse('var b = 2');
     var str3 = Parser.parse('var c = a + b');
