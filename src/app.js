@@ -20,13 +20,16 @@ app.listen(3000, function () {
     var interpreter = new Interpreter();
     console.log('Example app listening on port 3000!');
 
-    var str = Parser.parse('var a es 1, b es 2, d es 4; var c es 3; c es 6; si (a igual 2 o c distinto 3) { } sino si(c == 2) { } sino { } metodo getEdad() { var e es 3; }');
+    var str = Parser.parse('var a es 1, b es 2, d es 4; var c es 3; c es 6; si (a igual 2 y c distinto 3) { } sino si(c == 6) { console.log(getEdad(1,2))} sino { console.log("afa"); } getEdad(a, b) { devolver a+b; }');
 
     var str2 = JavascriptParser.parse('if(a == 2){}');
 
     var result = escodegen.generate(str);
 
     console.log(result);
+
+    eval(result);
+
     //Interpreter.interpret(str);
 });
 

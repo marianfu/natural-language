@@ -4,7 +4,7 @@
   "description": "Natural Programming Language",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/jasmine-node spec"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,8 @@
     "express": "^4.14.0",
     "pegjs": "^0.9.0",
     "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
   }
 }
