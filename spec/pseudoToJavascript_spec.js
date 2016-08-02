@@ -1,13 +1,25 @@
-var pegjs = require('pegjs');
-var escodegen = require('escodegen');
-var Parser = require('../src/natural_parser');
+var Escodegen = require('escodegen');
+var NaturalLanguage = require('../src/natural_parser');
 
 describe("Variable declarations", function () {
 
-    it('should return "var a = 1"', function () {
-        var pseudoCode = Parser.parse("var a es 1");
-        var javascriptCode = escodegen.generate(pseudoCode);
+	var pseudoCode, javascriptExpected, javascriptGenerated; 
 
-        expect(javascriptCode).toBe("var a = 1;");
+    it("should return 'var a = 1' ", function () {
+
+        pseudoCode = NaturalLanguage.parse("var a es 1;");
+        javascriptExpected = "var a = 1;"
+        javascriptGenerated = Escodegen.generate(pseudoCode);
+
+        expect(javascriptGenerated).toBe(javascriptExpected);
     });
+
+    it("should return 'var a=1, b=2, c=3;'", function() {
+
+        pseudoCode = NaturalLanguage.parse("var a es 1, b es 2, c es 3;");
+        javascriptExpected = "var a = 1, b = 2, c = 3;"
+        javascriptGenerated = Escodegen.generate(pseudoCode);
+
+    	expect(javascriptGenerated).toBe(javascriptExpected);
+    })
 });
