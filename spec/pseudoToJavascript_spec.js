@@ -11,7 +11,7 @@ describe("Variable declarations", function () {
         javascriptExpected = "var a = 1;"
         javascriptGenerated = Escodegen.generate(pseudoCode);
 
-        expect(javascriptGenerated).toBe(javascriptExpected);
+        expect(javascriptGenerated).toEqual(javascriptExpected);
     });
 
     it("should return 'var a=1, b=2, c=3;'", function() {
