@@ -1,7 +1,7 @@
 var Escodegen = require('escodegen');
 var NaturalLanguage = require('../src/natural_parser');
 
-describe("Variable declarations", function () {
+describe("Variable declarationfagagas", function () {
 
 	var pseudoCode, javascriptExpected, javascriptGenerated; 
 
